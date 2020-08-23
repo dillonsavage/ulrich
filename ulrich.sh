@@ -15,11 +15,10 @@ awk -v title="$title" '
     BEGIN {
     	  RS="==========\r";
 	  FS="\n";
-	  OFS="\n";
     }
     $2 ~ title { 
        gsub(/\r/, "");
-       print $3, $5, "\n";
+       printf("%s\n%s\n\n", $3, $5);
     }
 ' "$clipfile" > "$outfile"
 

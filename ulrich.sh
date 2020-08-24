@@ -20,5 +20,5 @@ awk -v title="$title" '
        gsub(/\r/, "");
        printf("%s\n%s\n\n", $3, $5);
     }
-' "$clipfile" > "$outfile"
+' "$clipfile" | fold -w 120 -s > "$outfile"
 
